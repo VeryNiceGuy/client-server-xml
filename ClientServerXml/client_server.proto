@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcProcessor";
+
+package processing;
+
+service Processor {
+  rpc StartProcessing (ProcessRequest) returns (stream ProcessReport);
+}
+
+message ProcessRequest {
+  bytes id = 1;
+}
+
+message ProcessReport {
+  string message = 1;
+}
